@@ -12,7 +12,8 @@
     "axios": "^1.7.7",
     "cheerio": "^1.0.0",
     "config": "^3.3.12",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "mongodb": "^6.9.0"
   },
   "devDependencies": {
     "eslint": "^9.11.1",
