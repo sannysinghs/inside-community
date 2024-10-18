@@ -1,6 +1,7 @@
 {
     "shwerooms": {
       "url" : "https://www.shwerooms.com/search_advanced.php?line=1&station=0", 
-      "detail" : "https://www.shwerooms.com/view.php"
+      "detail" : "https://www.shwerooms.com/view.php",
+      "photos" : "https://www.shwerooms.com/view_photos.php?p=1&i=10634907"
     }
   }
