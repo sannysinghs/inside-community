@@ -1,9 +1,12 @@
+require('dotenv').config()
 const axios = require('axios');
 const { connect } = require('./db_connection')
 const { urls } = require('./urls')
 const { parseRentalListing } = require('./rental-post-parser');
 
-const MAX_PAGE_COUNT = 10
+
+const isDebug = () => process.env.IS_DEBUG === 'true'
+const MAX_PAGE_COUNT = isDebug() ? 1 : 10;
 
 async function crawl(url) {
   try {
@@ -23,9 +26,12 @@ async function crawl(url) {
       page++
     } while (page < MAX_PAGE_COUNT)
 
-    if (results.length > 0) {
+    if (!isDebug() && results.length > 0) {
       await roomsCollection.insertMany(results)
     }
+
+    if (isDebug())
+      console.log(results)
       
     return results;
   } catch (error) {
