@@ -1,12 +1,11 @@
 const config = require('config');
-const exampleCrawler = require('./crawlers/article_crawlers');
+const express = require('express');
+const roomRoutes = require('./routes/rooms.js');
 
-async function main() {
-  try {
-    await exampleCrawler.crawl(config.get('shwerooms.url'), 1);
-  } catch (error) {
-    console.error('An error occurred:', error);
-  }
-}
+const app = express()
+const port = process.env.PORT || 3000;
+app.use('/api/rooms', roomRoutes)
 
-main();
+app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
+})
